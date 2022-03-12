@@ -3,6 +3,9 @@ import classes from './Header.module.css'
 import SearchIcon from '@mui/icons-material/Search';
 import HomeIcon from '@mui/icons-material/Home';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
+import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
+import ChatIcon from '@mui/icons-material/Chat';
+import NotificationIcon from '@mui/icons-material/Notifications';
 import Logo from '../../assets/logo.png'
 import HeaderOption from './HeaderOption';
 
@@ -23,6 +26,9 @@ const Header = () => {
       <div className={classes.headerRight}>
         <HeaderOption Icon={HomeIcon} title='Home' />
         <HeaderOption Icon={SupervisorAccountIcon} title='My Network' />
+        <HeaderOption Icon={BusinessCenterIcon} title='My Network' />
+        <HeaderOption Icon={ChatIcon} title='My Network' />
+        <HeaderOption Icon={NotificationIcon} title='My Network' />
       </div>
 
     </div>
