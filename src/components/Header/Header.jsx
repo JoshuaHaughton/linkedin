@@ -7,6 +7,7 @@ import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import ChatIcon from '@mui/icons-material/Chat';
 import NotificationIcon from '@mui/icons-material/Notifications';
 import Logo from '../../assets/logo.png'
+import Me from '../../assets/me.png'
 import HeaderOption from './HeaderOption';
 
 const Header = () => {
@@ -29,6 +30,7 @@ const Header = () => {
         <HeaderOption Icon={BusinessCenterIcon} title='My Network' />
         <HeaderOption Icon={ChatIcon} title='My Network' />
         <HeaderOption Icon={NotificationIcon} title='My Network' />
+        <HeaderOption avatar={Me} title='Me' />
       </div>
 
     </div>
