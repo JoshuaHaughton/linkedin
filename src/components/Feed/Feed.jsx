@@ -6,8 +6,11 @@ import EventNoteIcon from "@mui/icons-material/EventNote";
 import CalendarViewDayIcon from "@mui/icons-material/CalendarViewDay";
 import classes from "./Feed.module.css";
 import InputOption from "./InputOption/InputOption";
+import Post from "./Post/Post";
 
 const Feed = () => {
+  const [posts, setPosts] = useState([]);
+
   return (
     <div className={classes.feed}>
       <div className={classes.inputContainer}>
@@ -29,6 +32,10 @@ const Feed = () => {
           />
         </div>
       </div>
+
+      <Post name="Josh Haughton" description="This is a test" message="Ok great, this worked!"/>
+
+
     </div>
   );
 };
