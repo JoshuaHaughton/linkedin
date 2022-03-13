@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className={classes.footer}>
       <div className={classes.links}>
         <div>
-          <img src={Logo} /> <span> &copy; 2021</span>
+          <img src={Logo} /> <span> &copy; 2022</span>
         </div>
 
         <p>About</p>
