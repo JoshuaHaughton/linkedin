@@ -4,7 +4,7 @@
   margin: 0 auto;
   width: 100%;
   align-items: center;
-  min-height: 100vh;
+  min-height: calc(100vh - 50px);
   background-color: #f3f2ef;
 }
 
@@ -28,7 +28,7 @@
   flex-direction: column;
   align-items: center;
   background-color: #fff;
-  padding: 24px 32px 32px 32px;
+  padding: 24px 32px 18px 32px;
   border-radius: 8px;
   width: 336px
 }
@@ -80,6 +80,7 @@
   margin-top: 20px;
   background-color: #f3f2ef;
   text-align: center;
+  font-size: 14px;
 }
 
 .login > form > p {
@@ -88,17 +89,19 @@
   font-size: 12px;
   margin: 12px 0 24px 0;
   color: #666666;
+  font-weight: 400;
 }
 
 .login > form > label {
   width: calc(100% + 10px);
   margin: 4px 0 4px 0;
   color: #666666;
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: 450;
 }
 
 .loginToggle {
-  font-size: 18px !important;
+  font-size: 17px !important;
   font-weight: 400;
   color: black !important;
   margin: 24px 0 0 0 !important;

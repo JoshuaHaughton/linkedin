@@ -1,0 +1,43 @@
+.footer {
+  height: 50px;
+  width: 100vw;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 81%;
+}
+
+.links > p {
+  color: #666666;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.links > p:hover {
+  color: #0a66c2;
+  text-decoration: underline;
+}
+
+.links > div > img {
+  height: 14px;
+  filter: grayscale(1) invert(1);
+  filter: brightness(0);
+  margin-right: 8px;
+}
+
+.links > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666666;
+  font-size: 13px;
+  font-weight: 400;
+}

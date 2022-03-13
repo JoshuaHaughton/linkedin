@@ -5,6 +5,7 @@ import Feed from './components/Feed/Feed';
 import Login from './components/Auth/Login';
 import { useSelector } from 'react-redux';
 import { selectUser } from './features/userSlice';
+import Footer from './components/Footer/Footer';
 function App() {
   const user = useSelector(selectUser);
 
@@ -18,6 +19,7 @@ function App() {
           {/* Widgets */}
         </div>
       )}
+      <Footer />
     </div>
   );
 }
