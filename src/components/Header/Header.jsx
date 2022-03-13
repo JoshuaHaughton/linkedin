@@ -20,7 +20,7 @@ const Header = () => {
 
         <div className={classes.headerSearch}>
           <SearchIcon />
-          <input type="text" />
+          <input type="text" placeholder='Search' />
         </div>
       </div>
 
