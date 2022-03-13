@@ -3,6 +3,16 @@ import classes from "./Sidebar.module.css";
 import { Avatar } from "@mui/material";
 
 const Sidebar = () => {
+
+
+  const recentItem = topic => (
+    <div className={classes.recentItem}>
+      <span className={classes.hashtags}>#</span>
+      <p>{topic}</p>
+    </div>
+  )
+  
+
   return (
     <div className={classes.sidebar}>
 
@@ -26,6 +36,11 @@ const Sidebar = () => {
 
       <div className={classes.sidebarBottom}>
         <p>Recent</p>
+        {recentItem('react.js')}
+        {recentItem('programming')}
+        {recentItem('software engineering')}
+        {recentItem('design')}
+        {recentItem('dveloper')}
       </div>
 
 
