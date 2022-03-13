@@ -8,12 +8,14 @@ import classes from "./Feed.module.css";
 import InputOption from "./InputOption/InputOption";
 import Post from "./Post/Post";
 import { db } from "../../firebase";
+import firebase from 'firebase/compat/app';
 
 const Feed = () => {
   const [posts, setPosts] = useState([]);
+  const [input, setInput] = useState('');
 
   useEffect(() => {
-    db.collection("posts").onSnapshot((snapshhot) =>
+    db.collection("posts").orderBy('timestamp', 'desc').onSnapshot((snapshot) =>
       setPosts(
         snapshot.docs.map((doc) => {
           return {
@@ -28,9 +30,15 @@ const Feed = () => {
   const sendPost = (e) => {
     e.preventDefault();
 
-  
+    db.collection('posts').add({
+      name: "Joshua Haughton",
+      description: 'Description Test',
+      message: input,
+      photoUrl: '',
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    })
 
-    // setPosts([...posts])
+    setInput("");
   };
 
   return (
@@ -39,7 +47,7 @@ const Feed = () => {
         <div className={classes.input}>
           <CreateIcon />
           <form action="" onSubmit={sendPost}>
-            <input type="text" />
+            <input type="text" onChange={e => setInput(e.target.value)} value={input}/>
             <button>Send</button>
           </form>
         </div>
@@ -55,19 +63,21 @@ const Feed = () => {
         </div>
       </div>
       {posts &&
-        posts.map((post) => (
+        posts.map(({ id, data: { name, description, message, photoUrl } }) => (
           <Post
-            name={post.name}
-            description={post.description}
-            message={post.message}
+            key={id}
+            name={name}
+            description={description}
+            message={message}
+            photoUrl={photoUrl}
           />
         ))}
 
-      <Post
+      {/* <Post
         name="Josh Haughton"
         description="This is a test"
         message="Ok great, this worked!"
-      />
+      /> */}
     </div>
   );
 };
