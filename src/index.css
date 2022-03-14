@@ -28,6 +28,6 @@ code {
   display: flex;
   margin: 35px 20px 0 20px;
   min-height: calc(100vh - 112.5px);
-  max-width: 1200px;
+  max-width: 1150px;
 }
 

@@ -8,6 +8,7 @@ import { login, logout, selectUser } from './store/userSlice';
 import Footer from './components/Footer/Footer';
 import { useEffect } from 'react';
 import { auth } from './firebase';
+import Widgets from './components/Widgets/Widgets';
 function App() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
@@ -38,7 +39,7 @@ function App() {
             <div className='app__body'>
               <Sidebar />
               <Feed />
-              {/* Widgets */}
+              <Widgets />
             </div>
           </>
       )}
