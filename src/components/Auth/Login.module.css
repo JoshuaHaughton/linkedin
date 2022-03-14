@@ -46,7 +46,7 @@ input:-webkit-autofill:active{
 }
 
 .control > input {
-  width: 100%;
+  width: calc(100% - 10px);
   height: 32px;
   font-size: 14px;
   padding-left: 10px;
@@ -55,6 +55,7 @@ input:-webkit-autofill:active{
   transition: border 100ms ease;
   outline: none;
   color: black;
+  margin-top: 4px;
 }
 
 .control > input:hover {
@@ -82,7 +83,7 @@ input:-webkit-autofill:active{
 }
 
 .login > form > button {
-  width: 365px;
+  width: 345px;
   height: 48px;
   font-size: large;
   color: #fff;
@@ -92,6 +93,7 @@ input:-webkit-autofill:active{
   cursor: pointer;
   font-weight: 600;
   transition: background-color 150ms ease;
+  margin-top: 16px;
 }
 
 .login > form > button:hover {
@@ -114,14 +116,13 @@ input:-webkit-autofill:active{
   width: 350px;
   text-align: center;
   font-size: 12px;
-  margin: 12px 0 24px 0;
+  margin: 12px 0 6px 0;
   color: #666666;
   font-weight: 400;
 }
 
 .control > label {
   width: calc(100% + 10px);
-  margin: 4px 0 4px 0;
   color: #666666;
   font-size: 14px;
   font-weight: 450;

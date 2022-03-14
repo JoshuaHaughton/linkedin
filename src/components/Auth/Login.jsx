@@ -5,11 +5,9 @@ import { auth } from '../../firebase'
 import useInputValidate from '../hooks/use-input'
 
 const Login = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [enteredProfilePicture, setEnteredProfilePicture] = useState("");
   const [error, setError] = useState(null);
+  const [isSignUp, setIsSignUp] = useState(true);
 
 
   const {
@@ -53,6 +51,10 @@ const Login = () => {
 
   };
 
+  const toggleForm = () => {
+    setIsSignUp(prev => !prev);
+  }
+
    //Change classes of input field if error has been set
    const nameInputClasses = !nameInputHasError
    ? classes.control
@@ -73,13 +75,13 @@ const Login = () => {
       <h2>Make the most of your professional life</h2>
       <form action="">
 
-        <div className={nameInputClasses}>
+       {isSignUp && <div className={nameInputClasses}>
           <label>Full Name</label>
           <input type="text" value={enteredName} onChange={nameChangeHandler} onBlur={nameBlurHandler} />
           {nameInputHasError && (
                     <span className={classes.errorText}>Please enter your Username.</span>
                   )}
-        </div>
+        </div>}
 
         <div className={emailInputClasses}>
           <label>Email</label>
@@ -98,16 +100,16 @@ const Login = () => {
                   )}
         </div>
 
-        <div className={classes.control}>
+       {isSignUp && <div className={classes.control}>
           <label>Profile Picture (Optional)</label>
           <input type="text" value={enteredProfilePicture} onChange={e => setEnteredProfilePicture(e.target.value)}/>
-        </div>
+        </div>}
 
-        <p>By clicking Agree & Join, you agree to the LinkedIn <span className={classes.blue}>User Agreement</span>, <span className={classes.blue}>Privacy Policy</span>, and <span className={classes.blue}>Cookie Policy</span>.</p>
+       {isSignUp && <p>By clicking Agree & Join, you agree to the LinkedIn <span className={classes.blue}>User Agreement</span>, <span className={classes.blue}>Privacy Policy</span>, and <span className={classes.blue}>Cookie Policy</span>.</p>}
 
-        <button onCLick={login} > Agree & Join</button>
-        <p className={classes.loginToggle}>Already on LinkedIn?
-          <span onClick={register} className={classes.blue} > Sign In</span>
+        <button onlLick={login} > {isSignUp ? `Agree & Join` : `Sign In`}</button>
+        <p className={classes.loginToggle}>{isSignUp ? `Already on LinkedIn?` : `Not a member?`}
+          <span onClick={toggleForm} className={classes.blue} > {isSignUp ? `Sign In` : `Register Now`}</span>
         </p>
       </form>
       <p>Looking to create a page for a business?
