@@ -50,7 +50,7 @@ const Feed = () => {
     <div className={classes.feed}>
       <div className={classes.inputContainer}>
         <div className={classes.inputRow}>
-          <Avatar src={user && user.photoURL} className={classes.avatar}>{user && user.displayName[0]}</Avatar>
+          <Avatar src={user && user.photoURL} className={classes.avatar}>{user.displayName && user.displayName[0]}</Avatar>
           <div className={classes.input}>
             {/* <CreateIcon /> */}
             <form action="" onSubmit={sendPost}>
