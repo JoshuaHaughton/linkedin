@@ -25,7 +25,7 @@ function App() {
 
       } else {
         //User isn't logged in
-        dispatch(logout)
+        dispatch(logout())
       } 
     })
   }, [])

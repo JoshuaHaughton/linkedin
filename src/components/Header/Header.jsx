@@ -13,11 +13,11 @@ import { logout, selectUser } from '../../store/userSlice';
 import { auth } from '../../firebase';
 
 const Header = () => {
-  const user = useSelector(selectUser);
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
 
   const logoutOfApp = () => {
     //Tell Redux we're logging out
+    console.log('test');
     dispatch(logout())
     auth.signOut();
   }

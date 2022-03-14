@@ -7,11 +7,11 @@ import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 import classes from './Post.module.css'
 import InputOption from '../InputOption/InputOption';
 
-const Post = ({ name, description, message, photoUrl }) => {
+const Post = ({ name, description, message, photoURL }) => {
   return (
     <div className={classes.post}>
       <div className={classes.header}>
-        <Avatar />
+        <Avatar src={photoURL} >{name[0]}</Avatar>
         <div className={classes.info}>
           <h2>{name}</h2>
           <p>{description}</p>

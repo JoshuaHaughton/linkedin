@@ -65,8 +65,10 @@ const Login = () => {
         photoURL: userAuth.user.photoURL
       }))
     }).catch(err => {
-      alert(err)
-      console.log(err)
+      if (err != 'TypeError: e.preventDefault is not a function') {
+        alert(err)
+        console.log(err)
+      }
     })
 
 
@@ -104,15 +106,17 @@ const Login = () => {
               login({
                 email: userAuth.user.email,
                 uid: userAuth.user.uid,
-                displayName: enteredName,
-                photoURL: enteredProfilePicture ? enteredProfilePicture : null,
+                displayName: userAuth.user.displayName,
+                photoURL: userAuth.user.photoURL
               }),
             );
           });
       })
       .catch(err => {
-        alert(err.message)
-        console.log(err.message);
+        if (err != 'TypeError: e.preventDefault is not a function') {
+          alert(err)
+          console.log(err)
+        }
       })
   };
 

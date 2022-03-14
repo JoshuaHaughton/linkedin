@@ -9,8 +9,11 @@ import InputOption from "./InputOption/InputOption";
 import Post from "./Post/Post";
 import { db } from "../../firebase";
 import firebase from 'firebase/compat/app';
+import { useSelector } from "react-redux";
+import { selectUser } from "../../store/userSlice";
 
 const Feed = () => {
+  const user = useSelector(selectUser);
   const [posts, setPosts] = useState([]);
   const [input, setInput] = useState('');
 
@@ -31,10 +34,10 @@ const Feed = () => {
     e.preventDefault();
 
     db.collection('posts').add({
-      name: "Joshua Haughton",
-      description: 'Description Test',
+      name: user.displayName,
+      description: user.email,
       message: input,
-      photoUrl: '',
+      photoURL: user.photoURL || '',
       timestamp: firebase.firestore.FieldValue.serverTimestamp()
     })
 
@@ -63,13 +66,13 @@ const Feed = () => {
         </div>
       </div>
       {posts &&
-        posts.map(({ id, data: { name, description, message, photoUrl } }) => (
+        posts.map(({ id, data: { name, description, message, photoURL } }) => (
           <Post
             key={id}
             name={name}
             description={description}
             message={message}
-            photoUrl={photoUrl}
+            photoURL={photoURL}
           />
         ))}
 
