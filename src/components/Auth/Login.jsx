@@ -4,6 +4,8 @@ import LinkedInLogo from "../../assets/full_logo.png";
 import { auth } from "../../firebase";
 import useInputValidate from "../hooks/use-input";
 import { useDispatch } from "react-redux";
+import { login } from "../../store/userSlice";
+
 
 const Login = () => {
   const [enteredProfilePicture, setEnteredProfilePicture] = useState("");
@@ -43,7 +45,7 @@ const Login = () => {
     submitHandler: passwordSubmitHandler,
   } = useInputValidate((value) => value.trim().length >= 5);
 
-  const login = (e) => {
+  const loginToApp = (e) => {
     e.preventDefault();
 
     //Login only requires email and password
@@ -65,7 +67,7 @@ const Login = () => {
         photoURL: userAuth.user.photoURL
       }))
     }).catch(err => {
-      if (err != 'TypeError: e.preventDefault is not a function') {
+      if (err !== 'TypeError: e.preventDefault is not a function') {
         alert(err)
         console.log(err)
       }
@@ -75,8 +77,9 @@ const Login = () => {
 
   };
 
-  const register = (e) => {
+  const register = async (e) => {
     e.preventDefault();
+    console.log(e);
     // Sets all input fields to touched on submission so an error comes up if it is invalid
     nameSubmitHandler();
     emailSubmitHandler();
@@ -96,24 +99,30 @@ const Login = () => {
     auth
       .createUserWithEmailAndPassword(enteredEmail, enteredPassword)
       .then((userAuth) => {
+        console.log(userAuth.user.email, 'login 1')
+        console.log(userAuth.user.photoURL, 'login 1')
+        console.log(userAuth.user['_delegate'], '1')
         userAuth.user
           .updateProfile({
             displayName: enteredName,
             photoURL: enteredProfilePicture ? enteredProfilePicture : null,
           })
           .then(() => {
+            console.log(userAuth.user['_delegate'].displayName, 'login 2')
+            console.log(userAuth.user['_delegate'].photoURL, 'login 2')
+            console.log(enteredProfilePicture, 'login 2 pic')
             dispatch(
               login({
                 email: userAuth.user.email,
                 uid: userAuth.user.uid,
                 displayName: userAuth.user.displayName,
-                photoURL: userAuth.user.photoURL
+                photoURL: userAuth.user.photoURL,
               }),
             );
           });
       })
       .catch(err => {
-        if (err != 'TypeError: e.preventDefault is not a function') {
+        if (err !== 'TypeError: e.preventDefault is not a function') {
           alert(err)
           console.log(err)
         }
@@ -141,7 +150,7 @@ const Login = () => {
     <div className={classes.login}>
       <img src={LinkedInLogo} alt="Linkedin Logo" />
       <h2>Make the most of your professional life</h2>
-      <form onSubmit={isSignUp ? register : login}>
+      <form onSubmit={isSignUp ? register : loginToApp}>
         {isSignUp && (
           <div className={nameInputClasses}>
             <label>Full Name</label>
