@@ -7,13 +7,13 @@ import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import ChatIcon from '@mui/icons-material/Chat';
 import NotificationIcon from '@mui/icons-material/Notifications';
 import Logo from '../../assets/logo.png'
-import Me from '../../assets/me.png'
 import HeaderOption from './HeaderOption';
-import { useDispatch } from 'react-redux';
-import { logout } from '../../store/userSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout, selectUser } from '../../store/userSlice';
 import { auth } from '../../firebase';
 
 const Header = () => {
+  const user = useSelector(selectUser);
   const dispatch = useDispatch;
 
   const logoutOfApp = () => {
@@ -41,7 +41,7 @@ const Header = () => {
         <HeaderOption Icon={BusinessCenterIcon} title='My Network' />
         <HeaderOption Icon={ChatIcon} title='My Network' />
         <HeaderOption Icon={NotificationIcon} title='My Network' />
-        <HeaderOption avatar={Me} title='Me' onClick={logoutOfApp}/>
+        <HeaderOption avatar={true} title='Me' onClick={logoutOfApp}/>
       </div>
 
     </div>
