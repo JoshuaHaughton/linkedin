@@ -33,11 +33,16 @@
 .logo {
   object-fit: contain;
   height: 40px;
-  /* width: 48px; */
   margin-right: 10px;
   padding: 0;
 }
 
 .headerRight {
   display: flex;
+}
+
+@media (max-width: 760px) {
+  .headerRight {
+    margin-left: 12px;
+  }
 }

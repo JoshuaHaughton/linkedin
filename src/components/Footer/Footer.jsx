@@ -10,10 +10,10 @@ const Footer = () => {
           <img src={Logo} /> <span> &copy; 2022</span>
         </div>
 
-        <p>About</p>
-        <p>Accessibility</p>
-        <p>User Agreement</p>
-        <p>Privacy Policy</p>
+        <p className={classes.mandatory}>About</p>
+        <p className={classes.mandatory}>Accessibility</p>
+        <p className={classes.mandatory}>User Agreement</p>
+        <p className={classes.mandatory}>Privacy Policy</p>
         <p>Cookie Policy</p>
         <p>Copyright Policy</p>
         <p>Brand Policy</p>

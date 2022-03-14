@@ -19,6 +19,7 @@
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
+  margin: 0 8px;
 }
 
 .links > p:hover {
@@ -40,4 +41,20 @@
   color: #666666;
   font-size: 13px;
   font-weight: 400;
+}
+
+@media (max-width: 760px) {
+  .links > p {
+    display: none;
+  }
+
+  .mandatory {
+    display: flex !important;
+  }
+} 
+
+@media (max-width: 590px) {
+  .mandatory {
+    display: none !important;
+  }
 }
