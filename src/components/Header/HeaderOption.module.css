@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   margin-right: 20px;
-  color: gray;
+  color: #666666;
   cursor: pointer;
   transition: color 200ms ease;
 }
@@ -13,19 +13,40 @@
   color: black;
 }
 
-.title {
+.title,
+.activeTitle {
   font-size: 12px;
   font-weight: 400;
 }
 
-.icon {
+.activeTitle {
+  color: black;
+}
+
+.icon,
+.active {
   object-fit: contain;
-  height: 25px !important;
+  height: 65% !important;
   width: 25px !important;
 }
 
-@media (max-width: 760px) {
+.active {
+  color: black;
+}
+
+@media (max-width: 775px) {
   .headerOption > h3 {
     display: none;
+  }
+
+  .icon,
+  .active {
+    height: 100% !important;
+    width: 100% !important;
+  }
+
+  .headerOption {
+    margin-right: 0;
+    width: 10%;
   }
 }

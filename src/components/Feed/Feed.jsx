@@ -6,6 +6,7 @@ import EventNoteIcon from "@mui/icons-material/EventNote";
 import CalendarViewDayIcon from "@mui/icons-material/CalendarViewDay";
 import classes from "./Feed.module.css";
 import InputOption from "./InputOption/InputOption";
+import { Avatar } from '@mui/material'
 import Post from "./Post/Post";
 import { db } from "../../firebase";
 import firebase from 'firebase/compat/app';
@@ -48,12 +49,15 @@ const Feed = () => {
   return (
     <div className={classes.feed}>
       <div className={classes.inputContainer}>
-        <div className={classes.input}>
-          <CreateIcon />
-          <form action="" onSubmit={sendPost}>
-            <input type="text" onChange={e => setInput(e.target.value)} value={input}/>
-            <button>Send</button>
-          </form>
+        <div className={classes.inputRow}>
+          <Avatar src={user && user.photoURL} className={classes.avatar}>{user && user.displayName[0]}</Avatar>
+          <div className={classes.input}>
+            {/* <CreateIcon /> */}
+            <form action="" onSubmit={sendPost}>
+              <input type="text" onChange={e => setInput(e.target.value)} value={input} placeholder="Start a post"/>
+              <button>Send</button>
+            </form>
+          </div>
         </div>
         <div className={classes.inputOptions}>
           <InputOption Icon={ImageIcon} title="Photo" color="#70B5F9" />

@@ -1,8 +1,10 @@
 .post {
   background-color: #fff;
   padding: 15px;
+  padding-bottom: 8px;
   margin-bottom: 10px;
   border-radius: 10px;
+  border: 1px solid #e0dfdb;
 }
 
 .header {
@@ -30,4 +32,9 @@
 .buttons {
   display: flex;
   justify-content: space-evenly;
+}
+
+hr {
+  opacity: 0.2;
+  margin-top: 16px;
 }

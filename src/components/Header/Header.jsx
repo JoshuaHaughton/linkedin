@@ -36,7 +36,7 @@ const Header = () => {
       </div>
 
       <div className={classes.headerRight}>
-        <HeaderOption Icon={HomeIcon} title='Home' />
+        <HeaderOption Icon={HomeIcon} title='Home' active={true}/>
         <HeaderOption Icon={SupervisorAccountIcon} title='My Network' />
         <HeaderOption Icon={BusinessCenterIcon} title='My Network' />
         <HeaderOption Icon={ChatIcon} title='My Network' />

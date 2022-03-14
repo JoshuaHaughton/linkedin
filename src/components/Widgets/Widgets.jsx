@@ -25,8 +25,8 @@ const Widgets = () => {
         <InfoIcon />
       </div>
 
-      {newsArticle("Josh The Coder made this.", "Top News - 9999 readers")}
-      {newsArticle("Mask Mandates Coming to an End.", "3h ago • 3993 readers")}
+      {newsArticle("I Love Frontend Design!", "Top News - 124,021 readers")}
+      {newsArticle("The end of Covid-19?", "42m ago")}
       {newsArticle("Are you having a good day today?", "14h ago • 203 readers")}
       {newsArticle("Chick-fila announces opening of 40 new restaurants in Canada", "22h ago • 8492 readers")}
     </div>
