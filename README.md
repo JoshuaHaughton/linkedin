@@ -29,17 +29,17 @@ View Live HERE: [LinkedIn Clone](https://jh-linkedin-clone.netlify.app/)
 
 
 ### Dashboard
-!['Dashboard of app']()
+!['Dashboard of app'](https://github.com/JoshuaHaughton/linkedin-clone/blob/main/src/assets/Dashboard.png)
 
 
 
 ### Register
-!["Registration Page"]()
+!["Registration Page"](https://github.com/JoshuaHaughton/linkedin-clone/blob/main/src/assets/Register.png)
 
 
 
 ### Login
-!['Login Page']()
+!['Login Page'](https://github.com/JoshuaHaughton/linkedin-clone/blob/main/src/assets/Login.png)
 
 
 
