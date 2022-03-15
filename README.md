@@ -1,3 +1,51 @@
+# LinkedIn Clone 
+This LinkedIn Clone served as a way for me to improve my React-Redux knowledge, as well as my CSS skills. Users can create an account, make posts, and view posts other users make in real time. 
+
+View Live HERE: [LinkedIn Clone](https://jh-linkedin-clone.netlify.app/)
+
+
+
+## Built With
+- HTML5
+- CSS3
+- JavaScript
+- React.js
+- Redux
+
+
+## Description / Features
+- Page layouts and styling built entirely with HTML, CSS JavaScript and React.js
+- Responsive CSS on all devices
+- Use of React hooks and Custom hooks
+- Use of Redux
+- Firebase Authentication
+- Firestore Database
+
+
+
+
+## Images
+
+
+
+### Dashboard
+!['Dashboard of app']()
+
+
+
+### Register
+!["Registration Page"]()
+
+
+
+### Login
+!['Login Page']()
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
