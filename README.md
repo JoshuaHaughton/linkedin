@@ -43,6 +43,8 @@ View Live HERE: [LinkedIn Clone](https://jh-linkedin-clone.netlify.app/)
 
 
 
+### Mobile Mode
+!['Mobile Mode'](https://github.com/JoshuaHaughton/linkedin-clone/blob/main/src/assets/MobileMode.png)
 
 
 
