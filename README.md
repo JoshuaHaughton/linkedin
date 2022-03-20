@@ -1,7 +1,8 @@
-# LinkedIn Clone 
-This LinkedIn Clone served as a way for me to improve my React-Redux knowledge, as well as my CSS skills. Users can create an account, make posts, and view posts other users make in real time. 
+# LinkedIn 
+This LinkedIn Remake served as a way for me to improve my knowledge about React-Redux, Custom Hooks, as well as my CSS. Users can create an account, make posts, and view posts other users make in real time. 
 
-View Live HERE: [LinkedIn Clone](https://jh-linkedin-clone.netlify.app/)
+
+View Live HERE: [LinkedIn](https://jh-linkedin-clone.netlify.app/)
 
 
 
@@ -94,4 +95,5 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-# linkedin-clone
+
+# LinkedIn
