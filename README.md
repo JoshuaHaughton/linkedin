@@ -11,6 +11,8 @@ View Live HERE: [LinkedIn Clone](https://jh-linkedin-clone.netlify.app/)
 - JavaScript
 - React.js
 - Redux
+- Firebase Auth
+- Firebase Database
 
 
 ## Description / Features

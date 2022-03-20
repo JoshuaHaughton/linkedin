@@ -5,7 +5,7 @@ const initialState = {
   user: null
 };
 
-
+//Using Redux Toolkit we can mutate the data like this, because it detects changes like this and handles it correctly in the background using a package called imgur
 export const userSlice = createSlice({
   name: 'user',
   initialState,

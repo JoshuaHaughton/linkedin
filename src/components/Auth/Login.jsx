@@ -6,10 +6,8 @@ import useInputValidate from "../hooks/use-input";
 import { useDispatch } from "react-redux";
 import { login } from "../../store/userSlice";
 
-
 const Login = () => {
   const [enteredProfilePicture, setEnteredProfilePicture] = useState("");
-  const [error, setError] = useState(null);
   const [isSignUp, setIsSignUp] = useState(true);
   const dispatch = useDispatch();
 
@@ -56,25 +54,30 @@ const Login = () => {
     if (!enteredEmailIsValid || !enteredPasswordIsValid) {
       return;
     }
+
     //If valid, continue
+    auth
+      .signInWithEmailAndPassword(enteredEmail, enteredPassword)
+      .then((userAuth) => {
+        dispatch(
+          login({
+            email: userAuth.user.email,
+            uid: userAuth.user.uid,
+            displayName: userAuth.user.displayName,
+            photoURL: userAuth.user.photoURL,
+          }),
+        );
+      })
+      .catch((err) => {
+        if (err !== "TypeError: e.preventDefault is not a function") {
+          alert(err);
+          console.log(err);
+        }
+      });
 
-    auth.signInWithEmailAndPassword(enteredEmail, enteredPassword)
-    .then(userAuth => {
-      dispatch(login({
-        email: userAuth.user.email,
-        uid: userAuth.user.uid,
-        displayName: userAuth.user.displayName,
-        photoURL: userAuth.user.photoURL
-      }))
-    }).catch(err => {
-      if (err !== 'TypeError: e.preventDefault is not a function') {
-        alert(err)
-        console.log(err)
-      }
-    })
-
-
-
+    resetEmailInput();
+    resetNameInput();
+    resetPasswordInput();
   };
 
   const register = async (e) => {
@@ -99,18 +102,18 @@ const Login = () => {
     auth
       .createUserWithEmailAndPassword(enteredEmail, enteredPassword)
       .then((userAuth) => {
-        console.log(userAuth.user.email, 'login 1')
-        console.log(userAuth.user.photoURL, 'login 1')
-        console.log(userAuth.user['_delegate'], '1')
+        console.log(userAuth.user.email, "login 1");
+        console.log(userAuth.user.photoURL, "login 1");
+        console.log(userAuth.user["_delegate"], "1");
         userAuth.user
           .updateProfile({
             displayName: enteredName,
             photoURL: enteredProfilePicture ? enteredProfilePicture : null,
           })
           .then(() => {
-            console.log(userAuth.user['_delegate'].displayName, 'login 2')
-            console.log(userAuth.user['_delegate'].photoURL, 'login 2')
-            console.log(enteredProfilePicture, 'login 2 pic')
+            console.log(userAuth.user["_delegate"].displayName, "login 2");
+            console.log(userAuth.user["_delegate"].photoURL, "login 2");
+            console.log(enteredProfilePicture, "login 2 pic");
             dispatch(
               login({
                 email: userAuth.user.email,
@@ -121,12 +124,12 @@ const Login = () => {
             );
           });
       })
-      .catch(err => {
-        if (err !== 'TypeError: e.preventDefault is not a function') {
-          alert(err)
-          console.log(err)
+      .catch((err) => {
+        if (err !== "TypeError: e.preventDefault is not a function") {
+          alert(err);
+          console.log(err);
         }
-      })
+      });
   };
 
   const toggleForm = () => {
@@ -146,6 +149,7 @@ const Login = () => {
     ? classes.control
     : `${classes.control} ${classes.invalid}`;
 
+    
   return (
     <div className={classes.login}>
       <img src={LinkedInLogo} alt="Linkedin Logo" />
@@ -218,11 +222,7 @@ const Login = () => {
           </p>
         )}
 
-        {isSignUp ? (
-          <button> Agree & Join</button>
-        ) : (
-          <button> Sign In</button>
-        )}
+        {isSignUp ? <button> Agree & Join</button> : <button> Sign In</button>}
         <p className={classes.loginToggle}>
           {isSignUp ? `Already on LinkedIn?` : `Not a member?`}
           <span onClick={toggleForm} className={classes.blue}>

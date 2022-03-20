@@ -6,22 +6,24 @@ import { selectUser } from "../../store/userSlice";
 
 const Sidebar = () => {
   const user = useSelector(selectUser);
-  console.log(user?.photoURL);
 
-
-  const recentItem = topic => (
+  const recentItem = (topic) => (
     <div className={classes.recentItem}>
       <span className={classes.hashtags}>#</span>
       <p>{topic}</p>
     </div>
-  )
+  );
 
   return (
     <div className={classes.sidebar}>
-
       <div className={classes.sidebarTop}>
-        <img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHw%3D&w=1000&q=80" alt="" />
-        <Avatar src={user?.photoURL} className={classes.avatar}>{user.displayName && user.displayName[0]}</Avatar>
+        <img
+          src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHw%3D&w=1000&q=80"
+          alt=""
+        />
+        <Avatar src={user?.photoURL} className={classes.avatar}>
+          {user.displayName && user.displayName[0]}
+        </Avatar>
         <h2>{user.displayName}</h2>
         <h4>{user.email}</h4>
       </div>
@@ -39,14 +41,12 @@ const Sidebar = () => {
 
       <div className={classes.sidebarBottom}>
         <p>Recent</p>
-        {recentItem('react.js')}
-        {recentItem('programming')}
-        {recentItem('software engineering')}
-        {recentItem('design')}
-        {recentItem('dveloper')}
+        {recentItem("react.js")}
+        {recentItem("programming")}
+        {recentItem("software engineering")}
+        {recentItem("design")}
+        {recentItem("dveloper")}
       </div>
-
-
     </div>
   );
 };
