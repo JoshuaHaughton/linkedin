@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import CreateIcon from "@mui/icons-material/Create";
 import ImageIcon from "@mui/icons-material/Image";
 import SubscriptionIcon from "@mui/icons-material/Subscriptions";
 import EventNoteIcon from "@mui/icons-material/EventNote";
@@ -14,9 +13,14 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../../store/userSlice";
 import FlipMove from "react-flip-move";
 
+type Snapshot = {
+  id: string;
+  data: firebase.firestore.DocumentData
+}
+
 const Feed = () => {
   const user = useSelector(selectUser);
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<Snapshot[] | []>([]);
   const [input, setInput] = useState("");
 
   useEffect(() => {
@@ -36,7 +40,7 @@ const Feed = () => {
   }, []);
 
   //Create a post
-  const sendPost = (e) => {
+  const sendPost = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     db.collection("posts").add({

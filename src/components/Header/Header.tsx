@@ -1,4 +1,3 @@
-import React from "react";
 import classes from "./Header.module.css";
 import SearchIcon from "@mui/icons-material/Search";
 import HomeIcon from "@mui/icons-material/Home";
@@ -8,8 +7,8 @@ import ChatIcon from "@mui/icons-material/Chat";
 import NotificationIcon from "@mui/icons-material/Notifications";
 import Logo from "../../assets/logo.png";
 import HeaderOption from "./HeaderOption";
-import { useDispatch, useSelector } from "react-redux";
-import { logout, selectUser } from "../../store/userSlice";
+import { useDispatch } from "react-redux";
+import { logout } from "../../store/userSlice";
 import { auth } from "../../firebase";
 
 const Header = () => {

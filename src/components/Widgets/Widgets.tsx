@@ -1,10 +1,9 @@
-import React from "react";
 import classes from "./Widgets.module.css";
 import InfoIcon from "@mui/icons-material/Info";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 
 const Widgets = () => {
-  const newsArticle = (heading, subtitle) => (
+  const newsArticle = (heading: string, subtitle: string) => (
     <div className={classes.article}>
       <div className={classes.articleLeft}>
         <FiberManualRecordIcon />

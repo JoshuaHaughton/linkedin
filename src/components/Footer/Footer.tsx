@@ -1,4 +1,3 @@
-import React from "react";
 import classes from "./Footer.module.css";
 import Logo from "../../assets/full_logo.png";
 
@@ -7,7 +6,7 @@ const Footer = () => {
     <footer className={classes.footer}>
       <div className={classes.links}>
         <div>
-          <img src={Logo} /> <span> &copy; 2022</span>
+          <img src={Logo} alt="LinkedIn Logo" /> <span> &copy; 2022</span>
         </div>
 
         <p className={classes.mandatory}>About</p>

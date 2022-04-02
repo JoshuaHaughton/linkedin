@@ -1,13 +1,12 @@
-import React from "react";
-import classes from "./Sidebar.module.css";
 import { Avatar } from "@mui/material";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../store/userSlice";
+import classes from "./Sidebar.module.css";
 
 const Sidebar = () => {
   const user = useSelector(selectUser);
 
-  const recentItem = (topic) => (
+  const recentItem = (topic: string) => (
     <div className={classes.recentItem}>
       <span className={classes.hashtags}>#</span>
       <p>{topic}</p>

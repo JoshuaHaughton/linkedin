@@ -7,11 +7,18 @@ import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 import classes from './Post.module.css'
 import InputOption from '../InputOption/InputOption';
 
+interface Props {
+  name: string
+  description: string
+  message: string
+  photoURL: string;
+}
+
 //ForwardRef for FlipMove animation library
-const Post = forwardRef(({ name, description, message, photoURL }, ref) => {
+const Post = forwardRef(({ name, description, message, photoURL }: Props, ref) => {
 
   return (
-    <div ref={ref} className={classes.post}>
+    <div ref={ref as React.RefObject<HTMLDivElement>} className={classes.post}>
       <div className={classes.header}>
         <Avatar src={photoURL} >{name[0]}</Avatar>
         <div className={classes.info}>

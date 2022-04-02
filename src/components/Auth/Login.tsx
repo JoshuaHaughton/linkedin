@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import classes from "./Login.module.css";
 import LinkedInLogo from "../../assets/full_logo.png";
 import { auth } from "../../firebase";
@@ -43,7 +43,7 @@ const Login = () => {
     submitHandler: passwordSubmitHandler,
   } = useInputValidate((value) => value.trim().length >= 5);
 
-  const loginToApp = (e) => {
+  const loginToApp = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     //Login only requires email and password
@@ -61,10 +61,10 @@ const Login = () => {
       .then((userAuth) => {
         dispatch(
           login({
-            email: userAuth.user.email,
-            uid: userAuth.user.uid,
-            displayName: userAuth.user.displayName,
-            photoURL: userAuth.user.photoURL,
+            email: userAuth!.user!.email,
+            uid: userAuth!.user!.uid,
+            displayName: userAuth!.user!.displayName,
+            photoURL: userAuth!.user!.photoURL,
           }),
         );
       })
@@ -80,7 +80,7 @@ const Login = () => {
     resetPasswordInput();
   };
 
-  const register = async (e) => {
+  const register = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(e);
     // Sets all input fields to touched on submission so an error comes up if it is invalid
@@ -102,24 +102,21 @@ const Login = () => {
     auth
       .createUserWithEmailAndPassword(enteredEmail, enteredPassword)
       .then((userAuth) => {
-        console.log(userAuth.user.email, "login 1");
-        console.log(userAuth.user.photoURL, "login 1");
-        console.log(userAuth.user["_delegate"], "1");
-        userAuth.user
-          .updateProfile({
+        console.log(userAuth!.user!.email, "login 1");
+        console.log(userAuth!.user!.photoURL, "login 1");
+        userAuth!
+          .user!.updateProfile({
             displayName: enteredName,
             photoURL: enteredProfilePicture ? enteredProfilePicture : null,
           })
           .then(() => {
-            console.log(userAuth.user["_delegate"].displayName, "login 2");
-            console.log(userAuth.user["_delegate"].photoURL, "login 2");
             console.log(enteredProfilePicture, "login 2 pic");
             dispatch(
               login({
-                email: userAuth.user.email,
-                uid: userAuth.user.uid,
-                displayName: userAuth.user.displayName,
-                photoURL: userAuth.user.photoURL,
+                email: userAuth!.user!.email,
+                uid: userAuth!.user!.uid,
+                displayName: userAuth!.user!.displayName,
+                photoURL: userAuth!.user!.photoURL,
               }),
             );
           });
@@ -149,7 +146,6 @@ const Login = () => {
     ? classes.control
     : `${classes.control} ${classes.invalid}`;
 
-    
   return (
     <div className={classes.login}>
       <img src={LinkedInLogo} alt="Linkedin Logo" />

@@ -1,5 +1,20 @@
 //Custom hook created to make input validation more modular
 import { useReducer } from "react";
+import { InputState } from '../../types'
+
+
+enum ActionKind {
+  Input = "INPUT",
+  Blur = "BLUR",
+  Reset = "RESET",
+  Submit = "SUBMIT",
+}
+
+type Action = {
+  type: ActionKind;
+  value?: string | EventTarget;
+};
+
 
 //Init state
 const initialInputState = {
@@ -7,9 +22,10 @@ const initialInputState = {
   isTouched: false,
 };
 
+
 //Dispatched actions sent here
-const inputStateReducer = (state, action) => {
-  if (action.type === "INPUT") {
+const inputStateReducer = (state: InputState, action: Action): InputState => {
+  if (action.type === "INPUT" && typeof action.value === "string") {
     return { value: action.value, isTouched: state.isTouched };
   }
 
@@ -25,10 +41,10 @@ const inputStateReducer = (state, action) => {
     return { isTouched: true, value: state.value };
   }
 
-  return inputStateReducer;
+  throw new Error();
 };
 
-const useInputValidate = (validateValue) => {
+const useInputValidate = (validateValue: (a: string) => boolean) => {
   const [inputState, dispatch] = useReducer(
     inputStateReducer,
     initialInputState,
@@ -37,20 +53,24 @@ const useInputValidate = (validateValue) => {
   const valueIsValid = validateValue(inputState.value);
   const hasError = !valueIsValid && inputState.isTouched;
 
-  const valueChangeHandler = (event) => {
-    dispatch({ type: "INPUT", value: event.target.value });
+  const valueChangeHandler = (
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLSelectElement>,
+  ) => {
+    dispatch({ type: ActionKind.Input, value: event.target.value });
   };
 
   const inputBlurHandler = () => {
-    dispatch({ type: "BLUR" });
+    dispatch({ type: ActionKind.Blur });
   };
 
   const reset = () => {
-    dispatch({ type: "RESET" });
+    dispatch({ type: ActionKind.Reset });
   };
 
   const submitHandler = () => {
-    dispatch({ type: "SUBMIT" });
+    dispatch({ type: ActionKind.Submit });
   };
 
   return {
@@ -61,6 +81,7 @@ const useInputValidate = (validateValue) => {
     isValid: valueIsValid,
     reset,
     submitHandler,
+    inputState,
   };
 };
 

@@ -1,7 +1,13 @@
-import React from 'react'
 import classes from './InputOption.module.css'
+import { SvgIconComponent } from "@mui/icons-material";
 
-const InputOption = ({ title, Icon, color }) => {
+interface Props {
+  title: string
+  Icon: SvgIconComponent
+  color: string;
+}
+
+const InputOption = ({ title, Icon, color }: Props) => {
   return (
     <div className={classes.inputOption}>
       <Icon style={{ color }} className={classes.icon}/>
