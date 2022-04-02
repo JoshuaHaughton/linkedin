@@ -1,5 +1,5 @@
 # LinkedIn 
-This LinkedIn Remake served as a way for me to improve my knowledge about React-Redux, Custom Hooks, as well as my CSS. Users can create an account, make posts, and view posts other users make in real time. 
+This LinkedIn Remake served as a way for me to improve my knowledge about React with Redux, Custom Hooks, Typescript, as well as my CSS. Users can create an account, make posts, and view posts other users make in real time. 
 
 
 View Live HERE: [LinkedIn](https://jh-linkedin-clone.netlify.app/)
@@ -10,19 +10,22 @@ View Live HERE: [LinkedIn](https://jh-linkedin-clone.netlify.app/)
 - HTML5
 - CSS3
 - JavaScript
+- Typescript
 - React.js
 - Redux
-- Firebase Auth
-- Firebase Database
+- Firebase Authorization
+- Firebase Firestore Database
 
 
 ## Description / Features
 - Page layouts and styling built entirely with HTML, CSS JavaScript and React.js
 - Responsive CSS on all devices
-- Use of React hooks and Custom hooks
+- Static typing using Typescript
+- Use of React hooks
+- Use of Custom hooks
 - Use of Redux
-- Firebase Authentication
-- Firestore Database
+- Persistent Login state utilizing Firebase Authentication
+- CRUD operations handled by Firestore Database
 
 
 
