@@ -25,7 +25,6 @@ View Live HERE: [LinkedIn](https://jh-linkedin-clone.netlify.app/)
 - Use of Custom hooks
 - Use of Redux
 - Persistent Login state utilizing Firebase Authentication
-- CRUD operations handled by Firestore Database
 
 
 
