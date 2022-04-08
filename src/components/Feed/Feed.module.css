@@ -21,33 +21,33 @@
   width: 85%;
 }
 
- .input > form {
+.input > form {
   display: flex;
   width: 100%;
- }
+}
 
- .input > form > input {
-   border: none;
-   flex: 1;
-   outline-width: 0;
-   font-weight: 600;
-   height: 28px;
- } 
+.input > form > input {
+  border: none;
+  flex: 1;
+  outline-width: 0;
+  font-weight: 600;
+  height: 28px;
+}
 
- .input > form > button {
-   display: none;
- }
+.input > form > button {
+  display: none;
+}
 
- .inputOptions {
-   display: flex;
-   justify-content: space-evenly;
- }
+.inputOptions {
+  display: flex;
+  justify-content: space-evenly;
+}
 
- .inputRow {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
- }
+.inputRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .avatar {
   width: 48px !important;
@@ -55,18 +55,14 @@
   margin-right: 6px;
 }
 
-@media(max-width: 1150px) {
+@media (max-width: 1160px) {
   .feed {
     width: 70%;
   }
 }
 
-@media(max-width: 800px) {
+@media (max-width: 800px) {
   .feed {
     width: 85%;
   }
 }
-
-/* .postContainer {
-  width: 90%
-} */

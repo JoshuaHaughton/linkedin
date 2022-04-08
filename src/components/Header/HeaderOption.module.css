@@ -35,7 +35,7 @@
   color: black;
 }
 
-@media (max-width: 775px) {
+@media (max-width: 760px) {
   .headerOption > h3 {
     display: none;
   }
@@ -49,5 +49,13 @@
   .headerOption {
     margin-right: 0;
     width: 10%;
+    height: fit-content;
+    width: 9%;
+  }
+}
+
+@media (max-width: 360px) {
+  .headerOption {
+    width: 13%;
   }
 }
