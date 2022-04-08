@@ -17,6 +17,7 @@
 .activeTitle {
   font-size: 12px;
   font-weight: 400;
+  margin-top: 2px;
 }
 
 .activeTitle {
@@ -26,7 +27,7 @@
 .icon,
 .active {
   object-fit: contain;
-  height: 65% !important;
+  height: 25px !important;
   width: 25px !important;
 }
 
@@ -41,7 +42,7 @@
 
   .icon,
   .active {
-    height: 100% !important;
+    height: 75% !important;
     width: 100% !important;
   }
 

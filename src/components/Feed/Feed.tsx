@@ -85,7 +85,7 @@ const Feed = () => {
           />
         </div>
       </div>
-      <FlipMove>
+      <FlipMove className={classes.postContainer}>
         {posts &&
           posts.map(
             ({ id, data: { name, description, message, photoURL } }) => (

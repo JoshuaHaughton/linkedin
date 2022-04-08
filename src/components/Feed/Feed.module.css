@@ -54,3 +54,19 @@
   height: 48px !important;
   margin-right: 6px;
 }
+
+@media(max-width: 1150px) {
+  .feed {
+    width: 70%;
+  }
+}
+
+@media(max-width: 800px) {
+  .feed {
+    width: 85%;
+  }
+}
+
+/* .postContainer {
+  width: 90%
+} */

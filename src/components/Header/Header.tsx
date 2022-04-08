@@ -24,22 +24,24 @@ const Header = () => {
 
   return (
     <div className={classes.header}>
-      <div className={classes.headerLeft}>
-        <img src={Logo} alt="" className={classes.logo} />
+      <div className={classes.headerContentWrapper}>
+        <div className={classes.headerLeft}>
+          <img src={Logo} alt="" className={classes.logo} />
 
-        <div className={classes.headerSearch}>
-          <SearchIcon />
-          <input type="text" placeholder="Search" />
+          <div className={classes.headerSearch}>
+            <SearchIcon />
+            <input type="text" placeholder="Search" />
+          </div>
         </div>
-      </div>
 
-      <div className={classes.headerRight}>
-        <HeaderOption Icon={HomeIcon} title="Home" active={true} />
-        <HeaderOption Icon={SupervisorAccountIcon} title="My Network" />
-        <HeaderOption Icon={BusinessCenterIcon} title="My Network" />
-        <HeaderOption Icon={ChatIcon} title="My Network" />
-        <HeaderOption Icon={NotificationIcon} title="My Network" />
-        <HeaderOption avatar={true} title="Me" onClick={logoutOfApp} />
+        <div className={classes.headerRight}>
+          <HeaderOption Icon={HomeIcon} title="Home" active={true} />
+          <HeaderOption Icon={SupervisorAccountIcon} title="My Network" />
+          <HeaderOption Icon={BusinessCenterIcon} title="Jobs" />
+          <HeaderOption Icon={ChatIcon} title="Messaging" />
+          <HeaderOption Icon={NotificationIcon} title="Notifications" />
+          <HeaderOption avatar={true} title="Me" onClick={logoutOfApp} />
+        </div>
       </div>
     </div>
   );
